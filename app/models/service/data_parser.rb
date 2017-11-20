@@ -6,6 +6,7 @@ class Service::DataParser
 
   def call
     parse_gameweeks(@data["events"])
+    Service::DataParser::TeamsParser.new(@data["teams"]).call
     self
   end
 

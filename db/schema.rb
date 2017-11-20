@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171111005854) do
+ActiveRecord::Schema.define(version: 20171120055726) do
 
   create_table "gameweeks", force: :cascade do |t|
     t.string   "name",                limit: 255, null: false
@@ -23,5 +23,21 @@ ActiveRecord::Schema.define(version: 20171111005854) do
   end
 
   add_index "gameweeks", ["number"], name: "index_gameweeks_on_number", unique: true, using: :btree
+
+  create_table "teams", force: :cascade do |t|
+    t.string   "name",                  limit: 255, null: false
+    t.string   "short_name",            limit: 255, null: false
+    t.integer  "code",                  limit: 4,   null: false
+    t.integer  "strength",              limit: 4
+    t.integer  "strength_overall_home", limit: 4
+    t.integer  "strength_overall_away", limit: 4
+    t.integer  "strength_attack_home",  limit: 4
+    t.integer  "strength_attack_away",  limit: 4
+    t.integer  "strength_defence_home", limit: 4
+    t.integer  "strength_defence_away", limit: 4
+    t.integer  "team_division",         limit: 4
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
+  end
 
 end
