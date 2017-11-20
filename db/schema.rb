@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 20171111005854) do
     t.string   "name",                limit: 255, null: false
     t.integer  "number",              limit: 4,   null: false
     t.datetime "deadline_time",                   null: false
-    t.datetime "deadline_time_epoch",             null: false
+    t.integer  "deadline_time_epoch", limit: 4,   null: false
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
   end
