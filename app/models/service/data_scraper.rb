@@ -1,11 +1,11 @@
 class Service::DataScraper
-  FPL_API_URL = "https://fantasy.premierleague.com/drf/bootstrap-static"
+  API_URL = "https://fantasy.premierleague.com/drf/bootstrap-static"
 
   def initialize
   end
 
   def call
-    HTTParty.get(FPL_API_URL)
+    HTTParty.get(API_URL)
   end
 
 end
