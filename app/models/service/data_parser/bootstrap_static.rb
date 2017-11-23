@@ -1,4 +1,4 @@
-class Service::DataParser
+class Service::DataParser::BootstrapStatic
 
   def initialize(data)
     @data = data

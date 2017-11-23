@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171123063712) do
+ActiveRecord::Schema.define(version: 20171123074257) do
 
   create_table "gameweeks", force: :cascade do |t|
     t.string   "name",                limit: 255, null: false
@@ -106,6 +106,58 @@ ActiveRecord::Schema.define(version: 20171123063712) do
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
+
+  create_table "statlines", force: :cascade do |t|
+    t.integer  "player_id",                       limit: 4,                         null: false
+    t.integer  "match_team_id",                   limit: 4,                         null: false
+    t.integer  "points",                          limit: 4,                         null: false
+    t.integer  "value",                           limit: 4,                         null: false
+    t.integer  "transfers_balance",               limit: 4
+    t.integer  "selected",                        limit: 4
+    t.integer  "transfers_in",                    limit: 4
+    t.integer  "transfers_out",                   limit: 4
+    t.integer  "minutes",                         limit: 4
+    t.integer  "goals_scored",                    limit: 4
+    t.integer  "assists",                         limit: 4
+    t.integer  "clean_sheets",                    limit: 4
+    t.integer  "goals_conceded",                  limit: 4
+    t.integer  "own_goals",                       limit: 4
+    t.integer  "penalties_saved",                 limit: 4
+    t.integer  "penalties_missed",                limit: 4
+    t.integer  "yellow_cards",                    limit: 4
+    t.integer  "red_cards",                       limit: 4
+    t.integer  "saves",                           limit: 4
+    t.integer  "bonus",                           limit: 4
+    t.integer  "bps",                             limit: 4
+    t.decimal  "influence",                                 precision: 4, scale: 1
+    t.decimal  "creativity",                                precision: 4, scale: 1
+    t.decimal  "threat",                                    precision: 4, scale: 1
+    t.decimal  "ict_index",                                 precision: 4, scale: 1
+    t.integer  "open_play_crosses",               limit: 4
+    t.integer  "big_chances_created",             limit: 4
+    t.integer  "clearances_blocks_interceptions", limit: 4
+    t.integer  "recoveries",                      limit: 4
+    t.integer  "key_passes",                      limit: 4
+    t.integer  "tackles",                         limit: 4
+    t.integer  "winning_goals",                   limit: 4
+    t.integer  "attempted_passes",                limit: 4
+    t.integer  "completed_passes",                limit: 4
+    t.integer  "penalties_conceded",              limit: 4
+    t.integer  "big_chances_missed",              limit: 4
+    t.integer  "errors_leading_to_goal",          limit: 4
+    t.integer  "errors_leading_to_goal_attempt",  limit: 4
+    t.integer  "tackled",                         limit: 4
+    t.integer  "offside",                         limit: 4
+    t.integer  "target_missed",                   limit: 4
+    t.integer  "fouls",                           limit: 4
+    t.integer  "dribbles",                        limit: 4
+    t.datetime "created_at",                                                        null: false
+    t.datetime "updated_at",                                                        null: false
+  end
+
+  add_index "statlines", ["match_team_id"], name: "index_statlines_on_match_team_id", using: :btree
+  add_index "statlines", ["player_id", "match_team_id"], name: "index_statlines_on_player_id_and_match_team_id", unique: true, using: :btree
+  add_index "statlines", ["player_id"], name: "index_statlines_on_player_id", using: :btree
 
   create_table "teams", force: :cascade do |t|
     t.string   "name",                  limit: 255, null: false

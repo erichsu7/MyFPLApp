@@ -1,4 +1,5 @@
-class Service::DataScraper
+class Service::DataScraper::BootstrapStatic
+  # this fetches most data: Events, Teams, ElementTypes, Elements
   API_URL = "https://fantasy.premierleague.com/drf/bootstrap-static"
 
   def initialize
