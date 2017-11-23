@@ -1,4 +1,4 @@
-class Service::DataParser::TeamsParser
+class DataParser::TeamsParser
 
   def initialize(teams)
     @teams = teams

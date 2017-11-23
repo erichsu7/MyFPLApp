@@ -1,4 +1,4 @@
-class Service::DataParser::ElementTypesParser
+class DataParser::ElementTypesParser
 
   def initialize(element_types)
     @element_types = element_types

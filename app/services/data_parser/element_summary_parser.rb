@@ -1,4 +1,4 @@
-class Service::DataParser::ElementSummaryParser
+class DataParser::ElementSummaryParser
 
   def initialize(player_id, data)
     @player_id = player_id

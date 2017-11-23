@@ -1,4 +1,4 @@
-class Service::DataParser::FixturesParser
+class DataParser::FixturesParser
 
   def initialize(fixtures)
     @fixtures = fixtures

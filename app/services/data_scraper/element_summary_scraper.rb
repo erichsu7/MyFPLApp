@@ -1,4 +1,4 @@
-class Service::DataScraper::ElementSummaryScraper
+class DataScraper::ElementSummaryScraper
   API_URL = "https://fantasy.premierleague.com/drf/element-summary/"
 
   def initialize(player_id)

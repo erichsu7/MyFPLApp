@@ -1,4 +1,4 @@
-class Service::DataParser::ElementsParser
+class DataParser::ElementsParser
 
   def initialize(elements)
     @elements = elements

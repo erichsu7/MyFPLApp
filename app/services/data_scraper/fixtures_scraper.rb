@@ -1,4 +1,4 @@
-class Service::DataScraper::FixturesScraper
+class DataScraper::FixturesScraper
   API_URL = "https://fantasy.premierleague.com/drf/fixtures"
 
   def call

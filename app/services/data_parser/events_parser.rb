@@ -1,4 +1,4 @@
-class Service::DataParser::EventsParser
+class DataParser::EventsParser
 
   def initialize(events)
     @events = events
