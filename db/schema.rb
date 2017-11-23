@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171123062445) do
+ActiveRecord::Schema.define(version: 20171123063712) do
 
   create_table "gameweeks", force: :cascade do |t|
     t.string   "name",                limit: 255, null: false
@@ -49,6 +49,56 @@ ActiveRecord::Schema.define(version: 20171123062445) do
 
   add_index "matches", ["code"], name: "index_matches_on_code", using: :btree
   add_index "matches", ["gameweek_id"], name: "index_matches_on_gameweek_id", using: :btree
+
+  create_table "players", force: :cascade do |t|
+    t.string   "first_name",                   limit: 255,                         null: false
+    t.string   "last_name",                    limit: 255,                         null: false
+    t.string   "display_name",                 limit: 255,                         null: false
+    t.integer  "team_code",                    limit: 4
+    t.string   "status",                       limit: 255
+    t.integer  "code",                         limit: 4,                           null: false
+    t.string   "photo",                        limit: 255
+    t.integer  "squad_number",                 limit: 4
+    t.integer  "cost",                         limit: 4
+    t.integer  "cost_change_start",            limit: 4
+    t.integer  "cost_change_gameweek",         limit: 4
+    t.integer  "chance_of_playing_this_round", limit: 4
+    t.integer  "chance_of_playing_next_round", limit: 4
+    t.decimal  "value_form",                               precision: 3, scale: 1
+    t.decimal  "value_season",                             precision: 3, scale: 1
+    t.decimal  "selected_by_percent",                      precision: 4, scale: 1
+    t.decimal  "form",                                     precision: 3, scale: 1
+    t.integer  "transfers_out",                limit: 4
+    t.integer  "transfers_in",                 limit: 4
+    t.integer  "transfers_out_gameweek",       limit: 4
+    t.integer  "transfers_in_gameweek",        limit: 4
+    t.integer  "total_points",                 limit: 4
+    t.decimal  "points_per_match",                         precision: 3, scale: 1
+    t.integer  "minutes",                      limit: 4
+    t.integer  "goals_scored",                 limit: 4
+    t.integer  "assists",                      limit: 4
+    t.integer  "clean_sheets",                 limit: 4
+    t.integer  "goals_conceded",               limit: 4
+    t.integer  "own_goals",                    limit: 4
+    t.integer  "penalties_saved",              limit: 4
+    t.integer  "penalties_missed",             limit: 4
+    t.integer  "yellow_cards",                 limit: 4
+    t.integer  "red_cards",                    limit: 4
+    t.integer  "saves",                        limit: 4
+    t.integer  "bonus",                        limit: 4
+    t.integer  "bps",                          limit: 4
+    t.decimal  "influence",                                precision: 6, scale: 1
+    t.decimal  "creativity",                               precision: 5, scale: 1
+    t.decimal  "threat",                                   precision: 5, scale: 1
+    t.decimal  "ict_index",                                precision: 5, scale: 1
+    t.integer  "position_id",                  limit: 4
+    t.integer  "team_id",                      limit: 4
+    t.datetime "created_at",                                                       null: false
+    t.datetime "updated_at",                                                       null: false
+  end
+
+  add_index "players", ["position_id"], name: "index_players_on_position_id", using: :btree
+  add_index "players", ["team_id"], name: "index_players_on_team_id", using: :btree
 
   create_table "positions", force: :cascade do |t|
     t.string   "name",       limit: 255, null: false

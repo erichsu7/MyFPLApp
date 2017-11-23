@@ -8,6 +8,7 @@ class Service::DataParser
     Service::DataParser::EventsParser.new(@data["events"]).call
     Service::DataParser::TeamsParser.new(@data["teams"]).call
     Service::DataParser::ElementTypesParser.new(@data["element_types"]).call
+    Service::DataParser::ElementsParser.new(@data["elements"]).call
     self
   end
 
