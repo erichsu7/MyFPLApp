@@ -3,6 +3,7 @@ class MatchTeam < ActiveRecord::Base
 
   belongs_to :match
   belongs_to :team
+  has_many :statlines
 
   def self.find_by_gameweek_id_and_team_id(gameweek_id, team_id)
     self.includes(match: [:match_teams, :gameweek])
